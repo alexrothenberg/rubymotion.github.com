@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introduction to Rubymotion | rubymotion documentation project</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/zenburn.css">
+  </head>
+
+  <body>
+    <div class="header">
+      <p id="title">rubymotion documentation project</p>
+    </div>
+
+    <div class="content">
+
+<div class="breadcrumb">
+<a href="/">rubymotion documentation project</a> &rsaquo;
+Introduction to Rubymotion &rsaquo;
+</div>
+<h1 id="toc_235">Don&#39;t read this.</h1>
+
+<p><em>Disclaimer:</em> If you really need an introduction to Rubymotion and Cocoa, you
+should read elsewhere.  This site is handy for examples of <em>using</em> Cocoa within
+Rubymotion, and for checking up on the API for some things, but if you are just
+getting started, please read up on iOS and Rubymotion.</p>
+
+<h1 id="toc_236">Now read on!</h1>
+
+<p>Disclaimer is over!  Let&#39;s look at our first Rubymotion app.</p>
+
+<p>Start with <code>motion create helloworld</code> at the command line to create your empty
+app:</p>
+<pre><code>motion create helloworld
+    Create helloworld
+    Create helloworld/.gitignore
+    Create helloworld/Rakefile
+    Create helloworld/app
+    Create helloworld/app/app_delegate.rb
+    Create helloworld/resources
+    Create helloworld/spec
+    Create helloworld/spec/main_spec.rb
+</pre></code>
+<p>An empty Rubymotion app is <em>truly</em> empty.  No controllers, no views, nothing.
+This is a feature!  Nothing is &quot;magical&quot; in Rubymotion, and coming from Xcode,
+you will either appreciate or hate the fact that you will need to learn and
+understand things a little more than you did with Xcode.</p>
+
+<p>Let&#39;s create a <code>UIViewController</code>:</p>
+
+<h6 id="toc_237">app/app_delegate.rb</h6>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">application</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span><span class="ss">:launchOptions</span><span class="p">)</span>
+  <span class="vi">@window</span> <span class="o">=</span> <span class="no">UIWindow</span><span class="o">.</span><span class="n">alloc</span><span class="o">.</span><span class="n">initWithFrame</span><span class="p">(</span><span class="no">UIScreen</span><span class="o">.</span><span class="n">mainScreen</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+  <span class="vi">@window</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="no">UIColor</span><span class="o">.</span><span class="n">grayColor</span>
+  <span class="vi">@window</span><span class="o">.</span><span class="n">makeKeyAndVisible</span>
+  <span class="vi">@window</span><span class="o">.</span><span class="n">rootViewController</span> <span class="o">=</span> <span class="no">MyAppController</span><span class="o">.</span><span class="n">alloc</span><span class="o">.</span><span class="n">init</span>
+  <span class="kp">true</span>
+<span class="k">end</span>
+</pre></div>
+
+<h6 id="toc_238">app/my_app_controller.rb</h6>
+<div class="codehilite"><pre><span class="k">class</span> <span class="nc">MyAppController</span> <span class="o">&lt;</span> <span class="no">UIViewController</span>
+
+  <span class="k">def</span> <span class="nf">viewDidLoad</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="no">UILabel</span><span class="o">.</span><span class="n">alloc</span><span class="o">.</span><span class="n">initWithFrame</span><span class="p">(</span><span class="o">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">20</span><span class="o">]]</span><span class="p">)</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="no">UIFont</span><span class="o">.</span><span class="n">systemFontOfSize</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;Hello, world&#39;</span>
+    <span class="n">view</span><span class="o">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</pre></div>
+
+<p>Create a label, add it to our view, and that&#39;s it.</p>
+
+<p>Run it:</p>
+<pre><code>rake
+</pre></code>
+<p>Voila:</p>
+
+<figure>
+  <img src="/examples/helloworld.png" />
+  <figcaption>Hello, World!</figcaption>
+</figure>
+
+<h1 id="toc_239">Welcome</h1>
+
+<p>To misquote a wise prophet:</p>
+
+<blockquote>
+<p>Welcome to <del>Zombo.com</del> Rubymotion</p>
+
+<p>You can do anything at <del>Zombo.com</del> Rubymotion</p>
+
+<p>Anything at all</p>
+
+<p>The only limit is yourself</p>
+</blockquote>
+<div class="breadcrumb">
+&lsaquo; <a href="/">rubymotion documentation project</a>
+</div>
+
+    </div>
+
+    <footer>
+    <p><a href="https://github.com/rubymotion/rubymotion.github.com">Github</a></p>
+    </footer>
+
+  </body>
+</html>
