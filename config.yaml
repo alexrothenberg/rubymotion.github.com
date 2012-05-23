@@ -1,0 +1,19 @@
+strip_metadata_from_name: true
+strip_metadata_from_target_name: true
+meta:
+  analytics: 'UA-15076738-3'
+  title: rubymotion documentation project
+  media_prefix: "/"
+author:
+  github: https://github.com/rubymotion
+extensions:
+  - strange_case.extensions.misaka.MarkdownExtension
+filters:
+  date: strange_case.extensions.date.date
+  markdown: strange_case.extensions.misaka.markdown
+  json: json.dumps
+  sha: strange_case.extensions.sha.sha
+  pluralize: strange_case.extensions.inflect.pluralize
+processors:
+  - strange_case.extensions.scss
+  # - strange_case.extensions.toc

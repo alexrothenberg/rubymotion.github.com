@@ -1,0 +1,91 @@
+---
+title: Introduction to Rubymotion and Cocoa
+example: helloworld
+---
+{% extends 'layouts/post.html' %}
+
+
+{% block content %}{% markdown %}
+# Don't read this.
+
+*Disclaimer:* If you really need an introduction to Rubymotion and Cocoa, you
+should read elsewhere.  This site is handy for examples of *using* Cocoa within
+Rubymotion, and for checking up on the API for some things, but if you are just
+getting started, please read up on iOS and Rubymotion.
+
+# Now read on!
+
+Disclaimer is over!  Let's look at our first Rubymotion app.
+
+Start with `motion create helloworld` at the command line to create your empty
+app:
+
+    motion create helloworld
+        Create helloworld
+        Create helloworld/.gitignore
+        Create helloworld/Rakefile
+        Create helloworld/app
+        Create helloworld/app/app_delegate.rb
+        Create helloworld/resources
+        Create helloworld/spec
+        Create helloworld/spec/main_spec.rb
+
+An empty Rubymotion app is *truly* empty.  No controllers, no views, nothing.
+This is a feature!  Nothing is "magical" in Rubymotion, and coming from Xcode,
+you will either appreciate or hate the fact that you will need to learn and
+understand things a little more than you did with Xcode.
+
+Let's create a `UIViewController`:
+
+###### app/app_delegate.rb
+
+```ruby
+def application(application, didFinishLaunchingWithOptions:launchOptions)
+  @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
+  @window.backgroundColor = UIColor.grayColor
+  @window.makeKeyAndVisible
+  @window.rootViewController = MyAppController.alloc.init
+  true
+end
+```
+
+###### app/my_app_controller.rb
+
+```ruby
+class MyAppController < UIViewController
+
+  def viewDidLoad
+    label = UILabel.alloc.initWithFrame([[10, 20], [300, 20]])
+    label.font = UIFont.systemFontOfSize(15)
+    label.text = 'Hello, world'
+    view.addSubview(label)
+  end
+
+end
+```
+
+Create a label, add it to our view, and that's it.
+
+Run it:
+
+    rake
+
+Voila:
+
+<figure>
+  <img src="{{ site.examples.helloworld_png.url }}" />
+  <figcaption>Hello, World!</figcaption>
+</figure>
+
+# Welcome
+
+To misquote a wise prophet:
+
+>  Welcome to ~~Zombo.com~~ Rubymotion
+>
+>  You can do anything at ~~Zombo.com~~ Rubymotion
+>
+>  Anything at all
+>
+>  The only limit is yourself
+{% endmarkdown %}{% endblock %}

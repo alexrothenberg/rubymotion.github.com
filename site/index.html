@@ -1,0 +1,29 @@
+---
+title: rubymotion documentation project
+---
+{% extends 'layouts/default.html' %}
+
+
+{% macro pages(items) %}
+<ul>
+  {%- for node in items if node.iterable -%}
+    {%- if not node.exclude_from_toc -%}
+      {%- if node.is_page -%}
+  <li>
+    <a href="{{ node.url }}">{{ node.title }}</a>
+  </li>
+     {%- elif node.is_folder and node.index -%}
+  <li>
+    <a href="{{ node.index.url }}">{{ node.index.title }}</a>
+{{ pages(node.all(pages=True, folders=True)) }}
+  </li>
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+</ul>
+{% endmacro %}
+
+
+{% block main %}
+{{ pages(site.all(pages=True, folders=True)) }}
+{% endblock %}

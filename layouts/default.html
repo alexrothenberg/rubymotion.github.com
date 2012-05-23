@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% if my.title %}{{ my.title }} | {% endif %}{{ meta.title }}</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/zenburn.css">
+  </head>
+
+  <body>
+    <div class="header">
+      <p id="title">rubymotion documentation project</p>
+    </div>
+
+    <div class="content">
+{% block main %}{% endblock %}
+    </div>
+
+    <footer>
+    <p><a href="https://github.com/rubymotion/rubymotion.github.com">Github</a></p>
+    </footer>
+
+  </body>
+</html>
