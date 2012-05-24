@@ -1,0 +1,250 @@
+---
+title: UIButton
+example: uibutton
+author: colinta
+---
+{% extends 'layouts/post.html' %}
+
+
+{% block content %}{% markdown %}
+# buttonWithType
+
+You'll create your buttons using the class method `UIButton.buttonWithType()`.
+Here are examples of each type, except `UIButtonTypeCustom`.
+
+By-the-way, I found that "30" is a good height for buttons. Your mileage may
+vary.
+
+<section class="split">
+  <div class="left">
+
+```ruby
+{
+  UIButtonTypeRoundedRect =>      [[10, 10],  [300, 30]],
+  UIButtonTypeDetailDisclosure => [[10, 50],  [300, 30]],
+  UIButtonTypeInfoLight =>        [[10, 90],  [300, 30]],
+  UIButtonTypeInfoDark =>         [[10, 130], [300, 30]],
+  UIButtonTypeContactAdd =>       [[10, 170], [300, 30]],
+}.each do |type, frame|
+  button = UIButton.buttonWithType(type)
+  button.setTitle('UIButton', forState:UIControlStateNormal)
+  button.frame = frame
+  view.addSubview(button)
+end
+```
+  </div>
+  <div class="right">
+    <a href="{{ site.examples.uibutton_01_png.url }}"><img class="screenshot" src="{{ site.examples.uibutton_01_png.url }}" /></a>
+  </div>
+</section>
+
+# Custom button images
+
+<section class="split">
+  <div class="left">
+
+You use this button type if you want to use your own image.  You only have to
+provide one image - the "normal" image, and UIKit will add a darkened overlay
+to it.
+
+If you provide your own image for the "highlighted" state, though, it will use
+that.  So if you want a cartoony button pushing effect, you can have it!
+
+Place these in the `resources/` folder, and they will be accessible using
+`UIImage.imageNamed(name_without_extension)`.  If you include two versions, one
+with `@2x` before the extension, that one will be used for retina displays.
+
+Here are the four images I'm using:
+
+  <img class="hoverable"
+       src="{{ site.examples.uibutton_custom_up_png }}"
+       data-down="{{ site.examples.uibutton_custom_down_png }}"
+       />
+  <img class="hoverable"
+       src="{{ site.examples.uibutton_custom_up_2x_png }}"
+       data-down="{{ site.examples.uibutton_custom_down_2x_png }}"
+       width="70" height="70"
+       /> (click me)
+
+  </div>
+</section>
+
+<section class="split90">
+  <div class="left">
+
+```ruby
+button = UIButton.buttonWithType(UIButtonTypeCustom)
+button.setImage(UIImage.imageNamed('uibutton_custom_up'), forState:UIControlStateNormal)
+button.setImage(UIImage.imageNamed('uibutton_custom_down'), forState:UIControlStateHighlighted)
+button.frame = [[10, 200],  [70, 70]]
+view.addSubview(button)
+```
+
+  </div>
+  <div class="right">
+<img src="{{ site.examples.uibutton_02_png }}" width="79" />
+  </div>
+</section>
+
+You get some freebies this way, like you can disable the button, and it will be
+greyed out using your custom image.
+
+<section class="split90">
+  <div class="left">
+
+```ruby
+button.enabled = false
+# if you want to know whether it's enabled,
+# use button.enabled?
+```
+
+  </div>
+  <div class="right">
+<img src="{{ site.examples.uibutton_03_png }}" width="79" />
+  </div>
+</section>
+
+You could, if you wanted, disable the highlight and disabled buttons, if you
+*really* don't want your button to have the expected behavior.  BUT, if you are
+providing your own images, these values will be *ignored*, it will still
+
+```ruby
+button.adjustsImageWhenDisabled = false
+button.adjustsImageWhenHighlighted = false
+```
+
+# contentEdgeInsets - Let's see what this does!
+
+I don't know what this does, I've never played with a `UIEdgeInset` (another
+day, another Cocoa class or enum&hellip;).  Let's see!
+
+<section class="split90">
+  <div class="left">
+
+```ruby
+button = UIButton.buttonWithType(UIButtonTypeCustom)
+button.setImage(UIImage.imageNamed('uibutton_custom_up'), forState:UIControlStateNormal)
+button.frame = [[0, 0],  [70, 70]]
+button.contentEdgeInsets = [10, 10, 10, 10]
+view.addSubview(button)
+```
+
+  </div>
+  <div class="right">
+<img src="{{ site.examples.uibutton_04_png }}" width="80" />
+  </div>
+</section>
+
+Ahha, it "scrunches" things down... the "clickable" region stays the same,
+though, which is kind of weird.  Well, maybe you'll need this one day
+(apparently somebody did!).  There are also separate properties for the image
+and label: `imageEdgeInsets` and `titleEdgeInsets`
+
+# Messing with the look
+
+There are a bunch of ways to mess with the button without making a new image:
+
+* 'tintColor' (default: `nil`)
+* 'showsTouchWhenHighlighted' (default: `false`)
+* 'reversesTitleShadowWhenHighlighted' (default: `false`)
+
+<section class="split100">
+  <div class="left">
+
+```ruby
+button = UIButton.buttonWithType(UIButtonTypeRoundedRect)
+button.frame = [[10, 10],  [80, 30]]
+button.setTitle('Funky!', forState:UIControlStateNormal)
+button.tintColor = UIColor.purpleColor
+button.showsTouchWhenHighlighted = true
+button.reversesTitleShadowWhenHighlighted = true
+view.addSubview(button)
+```
+
+  </div>
+  <div class="right">
+<img src="{{ site.examples.uibutton_05_up_png }}" width="100" />
+<img src="{{ site.examples.uibutton_05_down_png }}" width="100" />
+  </div>
+</section>
+
+# List of methods:
+
+Bread and butter:
+
+```ruby
+UIButton.buttonWithType(uibuttontype)  # => UIButton
+button.setTitle(title, forState:uicontrolstate)
+button.setImage(uiimage, forState:uicontrolstate)
+```
+
+Lots of `CGRect` methods, these might be more for subclassing `UIButton`.  Are
+they affected by the `contentEdgeInsets` method?
+
+```ruby
+button.backgroundRectForBounds() # => CGRect
+button.backgroundRectForBounds() # => CGRect
+button.contentRectForBounds()    # => CGRect
+button.titleRectForContentRect() # => CGRect
+button.imageRectForContentRect() # => CGRect
+```
+
+EdgeInsets.  We only played with `contentEdgeInsets`.
+
+```ruby
+button.contentEdgeInsets                # => UIEdgeInsets
+button.titleEdgeInsets                  # => UIEdgeInsets
+button.imageEdgeInsets                  # => UIEdgeInsets
+button.contentEdgeInsets= [a, b, c, d]  # see also:
+button.titleEdgeInsets= [a, b, c, d]    #  UIEdgeInsetsZero (default)
+button.imageEdgeInsets= [a, b, c, d]    #  UIEdgeInsetsMake(a, b, c, d)
+```
+
+Getting the "current" values (they may change, depending on the "state"):
+
+```ruby
+button.currentTitle            # => String
+button.currentTitleColor       # => UIColor
+button.currentTitleShadowColor # => UIColor
+button.currentImage            # => UIImage
+button.currentBackgroundImage  # => UIImage
+```
+
+Getting the subviews:
+
+```ruby
+button.buttonType # => UIButtonType
+button.imageView  # => UIImageView
+button.titleLabel # => UILabel
+```
+
+Setting color, shadow, background based on state:
+
+```ruby
+button.setTitleColor(string, forState:uicontrolstate)
+button.setTitleShadowColor(string, forState:uicontrolstate)
+button.setBackgroundImage(uiimage, forState:uicontrolstate)
+button.titleColorForState(uicontrolstate)         # => UIColor
+button.titleForState(uicontrolstate)              # => String
+button.titleShadowColorForState(uicontrolstate)   # => UIColor
+button.backgroundImageForState(uicontrolstate)    # => UIImage
+button.imageForState(state)                       # => UIImage
+```
+
+# Official documentation
+
+[UIButton class reference](http://developer.apple.com/library/ios/#documentation/uikit/reference/UIButton_Class/UIButton/UIButton.html)
+
+{% endmarkdown %}
+<script>
+
+$('img.hoverable').each(function(i, btn) {
+  $(btn).data('up', $(btn).attr('src'));
+}).on('mousedown', function() {
+  $(this).attr('src', $(this).data('down'));
+}).on('mouseup', function() {
+  $(this).attr('src', $(this).data('up'));
+});
+
+</script>
+{% endblock %}

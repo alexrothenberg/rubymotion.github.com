@@ -2,7 +2,7 @@
 title: rubymotion documentation project
 ---
 {% extends 'layouts/default.html' %}
-{% from 'includes/author.j2' import author %}
+{% from 'includes/author.j2' import by_author %}
 
 
 {% macro pages(items) %}
@@ -23,7 +23,7 @@ title: rubymotion documentation project
   <li>
     <a href="{{ page.url }}">{{ page.title }}</a>
 {%- if page.author %}
-    by {{ author(authors[page.author]) }}
+    by {{ by_author(site.authors[page.author]) }}
 {%- endif -%}
     {%- if node_pages -%}
 {{ pages(node_pages) }}

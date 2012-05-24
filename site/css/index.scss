@@ -1,3 +1,12 @@
+@mixin clearfix {
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
 
 @mixin rounded($radius: 15px) {
   border-radius: $radius;
@@ -54,6 +63,10 @@ a {
   }
 }
 
+img {
+  display: inline-block;
+}
+
 .header {
   text-align: center;
 }
@@ -80,6 +93,21 @@ pre {
   background-color: #3f3f3f;
   padding: 20px;
   @include rounded(15px);
+}
+
+.codehilite {
+  pre {
+    overflow: auto;
+  }
+}
+
+code {
+  color: #3f3f3f;
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border: 1px solid #fdce93;
+  @include rounded(5px);
 }
 
 blockquote {
@@ -112,6 +140,63 @@ blockquote {
     padding-top: 5px;
     border-top: 1px solid #dbdbdb;
   }
+}
+
+section.split {
+  img.screenshot {
+    width: 100%;
+  }
+
+  .left {
+    width: 70%;
+    float: left;
+  }
+
+  .right {
+    width: 30%;
+    float: right;
+  }
+
+  @include clearfix;
+}
+
+section.split90 {
+  img.screenshot {
+    width: 100%;
+  }
+
+  .left {
+    width: 90%;
+    float: left;
+  }
+
+  .right {
+    width: 10%;
+    float: right;
+  }
+
+  @include clearfix;
+}
+
+section.split100 {
+  img.screenshot {
+    width: 100%;
+  }
+
+  .left {
+    width: 85%;
+    float: left;
+  }
+
+  .right {
+    width: 15%;
+    float: right;
+  }
+
+  @include clearfix;
+}
+
+section.example {
 }
 
 figure.gravatar {

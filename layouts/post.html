@@ -1,5 +1,5 @@
 {% extends 'layouts/default.html' %}
-{% from 'includes/author.j2' import author %}
+{% from 'includes/author.j2' import by_author %}
 
 
 {% block header %}
@@ -7,7 +7,7 @@
   <div id="subtitle">
     <span class="title">{{ title }}</span>
 {%- if my.author -%}
-    <br />by <span class="author">{{ author(authors[my.author]) }}</span>
+    <br />by <span class="author">{{ by_author(authors[my.author]) }}</span>
 {%- endif -%}
   </div>
 {% endblock %}
@@ -23,14 +23,14 @@
 {% block content %}{% endblock %}
 
 {% if my.example %}
-<div class="example">
+<section class="example">
   <p>
     Example:
     <a href="https://github.com/rubymotion/rubymotion.github.com/tree/build/examples/{{ my.example }}">
       rubymotion.github.com/tree/build/examples/{{ my.example }}
     </a>
   </p>
-</div>
+</section>
 {% endif %}
 
 <div class="breadcrumb">

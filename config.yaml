@@ -4,8 +4,6 @@ meta:
   analytics: 'UA-15076738-3'
   title: rubymotion documentation project
   media_prefix: "/"
-author:
-  github: https://github.com/rubymotion
 extensions:
   - strange_case.extensions.misaka.MarkdownExtension
 filters:
