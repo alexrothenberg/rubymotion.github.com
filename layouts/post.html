@@ -9,9 +9,22 @@
 {{ my.title }} &rsaquo;
 </div>
 {% block content %}{% endblock %}
+
+{% if my.example %}
+<div class="example">
+  <p>
+    Example:
+    <a target="_blank" href="https://github.com/rubymotion/rubymotion.github.com/tree/build/examples/{{ my.example }}">
+      rubymotion.github.com/tree/build/examples/{{ my.example }}
+    </a>
+  </p>
+</div>
+{% endif %}
+
 <div class="breadcrumb">
 {% for crumb in my.ancestors -%}
   &lsaquo; <a href="{{ crumb.url }}">{{ crumb.title }}</a>
 {% endfor -%}
 </div>
+
 {% endblock %}
