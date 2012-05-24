@@ -1,0 +1,9 @@
+{% macro author(author) %}
+{% if author.website %}<a href="{{ author.website }}" target="_blank">{% endif %}
+{%- if author.gravatar -%}
+    <figure class="gravatar">
+      <img src="http://www.gravatar.com/avatar/{{ author.gravatar|md5 }}.jpg" />
+    </figure>
+{%- endif -%} {{ author.name }}
+{% if author.website %}</a>{% endif %}
+{% endmacro %}

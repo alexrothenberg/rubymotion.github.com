@@ -12,8 +12,15 @@ filters:
   date: strange_case.extensions.date.date
   markdown: strange_case.extensions.misaka.markdown
   json: json.dumps
-  sha: strange_case.extensions.sha.sha
+  sha: strange_case.extensions.hashlib.sha
+  md5: strange_case.extensions.hashlib.md5
   pluralize: strange_case.extensions.inflect.pluralize
 processors:
   - strange_case.extensions.scss
   # - strange_case.extensions.toc
+authors:
+  colinta:
+    github: colinta
+    name: Colin Thomas-Arnold
+    gravatar: colinta@mac.com
+    website: http://colinta.com/

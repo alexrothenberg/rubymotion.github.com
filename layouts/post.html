@@ -1,4 +1,16 @@
 {% extends 'layouts/default.html' %}
+{% from 'includes/author.j2' import author %}
+
+
+{% block header %}
+{{ super() }}
+  <div id="subtitle">
+    <span class="title">{{ title }}</span>
+{%- if my.author -%}
+    <br />by <span class="author">{{ author(authors[my.author]) }}</span>
+{%- endif -%}
+  </div>
+{% endblock %}
 
 
 {% block main %}
@@ -14,7 +26,7 @@
 <div class="example">
   <p>
     Example:
-    <a target="_blank" href="https://github.com/rubymotion/rubymotion.github.com/tree/build/examples/{{ my.example }}">
+    <a href="https://github.com/rubymotion/rubymotion.github.com/tree/build/examples/{{ my.example }}">
       rubymotion.github.com/tree/build/examples/{{ my.example }}
     </a>
   </p>

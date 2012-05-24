@@ -2,22 +2,35 @@
 title: rubymotion documentation project
 ---
 {% extends 'layouts/default.html' %}
+{% from 'includes/author.j2' import author %}
 
 
 {% macro pages(items) %}
 <ul>
   {%- for node in items if node.iterable -%}
     {%- if not node.exclude_from_toc -%}
-      {%- if node.is_page -%}
+{%- if node.is_page                                       -%}
+{%-   set page = node                                     -%}
+{%-   set node_pages = []                                 -%}
+{%- elif node.is_folder and node.index                    -%}
+{%-   set page = node.index                               -%}
+{%-   set node_pages = node.all(pages=True, folders=True) -%}
+{%- else                                                  -%}
+{%-   set page = None                                     -%}
+{%- endif                                                 -%}
+
+{%- if page -%}
   <li>
-    <a href="{{ node.url }}">{{ node.title }}</a>
+    <a href="{{ page.url }}">{{ page.title }}</a>
+{%- if page.author %}
+    by {{ author(authors[page.author]) }}
+{%- endif -%}
+    {%- if node_pages -%}
+{{ pages(node_pages) }}
+    {%- endif -%}
   </li>
-     {%- elif node.is_folder and node.index -%}
-  <li>
-    <a href="{{ node.index.url }}">{{ node.index.title }}</a>
-{{ pages(node.all(pages=True, folders=True)) }}
-  </li>
-      {%- endif -%}
+{%- endif -%}
+
     {%- endif -%}
   {%- endfor -%}
 </ul>

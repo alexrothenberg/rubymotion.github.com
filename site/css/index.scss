@@ -1,4 +1,9 @@
-$border-radius: 15px;
+
+@mixin rounded($radius: 15px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
 
 ::-webkit-selection {
   background: #5e5e5e;
@@ -41,6 +46,8 @@ a {
   -ms-transition: 0.2s linear;
   -o-transition: 0.2s linear;
   transition: 0.2s linear;
+  display: inline-block;
+  height: 18px;
 
   &:hover {
     text-shadow: 0px 0px 15px #71AEB7;
@@ -58,17 +65,27 @@ a {
   border-bottom: 1px solid #dbdbdb;
 }
 
+#subtitle {
+  margin-top: 10px;
+  border-bottom: 1px solid #dbdbdb;
+
+  .title {
+    font-family: "Wire One", sans-serif;
+    font-size: 45px;
+  }
+}
+
 pre {
+  color: #fdce93;
+  background-color: #3f3f3f;
   padding: 20px;
-  -moz-border-radius: $border-radius;
-  border-radius: $border-radius;
+  @include rounded(15px);
 }
 
 blockquote {
   margin-left: 10px;
   padding: 5px;
-  -moz-border-radius: $border-radius;
-  border-radius: $border-radius;
+  @include rounded(8px);
   font-family: serif;
   background-color: #e9f0ff;
 
@@ -83,17 +100,35 @@ blockquote {
   width: 70%;
   background: #ffffff;
   box-shadow: 0px 0px 6px #767676 inset;
+}
 
-  .breadcrumb {
-    &:first-child {
-      padding-bottom: 5px;
-      border-bottom: 1px solid #dbdbdb;
-    }
+.breadcrumb {
+  &:first-child {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #dbdbdb;
+  }
 
-    &:last-child {
-      padding-top: 5px;
-      border-top: 1px solid #dbdbdb;
-    }
+  &:last-child {
+    padding-top: 5px;
+    border-top: 1px solid #dbdbdb;
+  }
+}
+
+figure.gravatar {
+  border: 1px solid #dbdbdb;
+  @include rounded(3px);
+  padding: 2px;
+  margin: 0px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  float: left;
+  position: relative;
+  bottom: 4px;
+
+  img {
+    width: 20px;
+    height: 20px;
   }
 }
 
