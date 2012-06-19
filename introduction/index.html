@@ -3,9 +3,13 @@
   <head>
     <title>Introduction to Rubymotion | rubymotion documentation project</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/css/index.css">
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400italic,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/zenburn.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/index.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   </head>
 
@@ -13,10 +17,10 @@
     <div class="header">
 
 
-      <p id="title">rubymotion documentation project</p>
+      <p id="title">Rubymotion Documentation Project</p>
 
   <div id="subtitle">
-    <span class="title">Introduction to Rubymotion</span><br />by <span class="author">
+    <span class="title">Introduction to Rubymotion</span>by <span class="author">
 <a href="http://colinta.com/" target="_blank"><figure class="gravatar">
       <img src="http://www.gravatar.com/avatar/0b64b1fd4310148fdb121698cbf58960.jpg" />
     </figure>Colin Thomas-Arnold
@@ -24,21 +28,24 @@
 </span></div>
 
     </div>
+    
+
+<div class="breadcrumb">
+<a href="/">Rubymotion Documentation Project</a> <span class="icon icon-chevron-right"></span>
+Introduction to Rubymotion <span class="icon icon-chevron-right"></span>
+</div>
+
 
     <div class="content">
 
-<div class="breadcrumb">
-<a href="/">rubymotion documentation project</a> &rsaquo;
-Introduction to Rubymotion &rsaquo;
-</div>
-<h1 id="toc_44">Don&#39;t read this.</h1>
+<h1 id="don-39-t-read-this">Don&#39;t read this.</h1>
 
 <p><em>Disclaimer:</em> If you really need an introduction to Rubymotion and Cocoa, you
 should read elsewhere.  This site is handy for examples of <em>using</em> Cocoa within
 Rubymotion, and for checking up on the API for some things, but if you are just
 getting started, please read up on iOS and Rubymotion.</p>
 
-<h1 id="toc_45">Now read on!</h1>
+<h1 id="now-read-on">Now read on!</h1>
 
 <p>Disclaimer is over!  Let&#39;s look at our first Rubymotion app.</p>
 
@@ -61,7 +68,7 @@ understand things a little more than you did with Xcode.</p>
 
 <p>Let&#39;s create a <code>UIViewController</code>:</p>
 
-<h6 id="toc_46">app/app_delegate.rb</h6>
+<h6 id="app-app_delegate-rb">app/app_delegate.rb</h6>
 <div class="codehilite"><pre><span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">application</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span><span class="ss">:launchOptions</span><span class="p">)</span>
   <span class="vi">@window</span> <span class="o">=</span> <span class="no">UIWindow</span><span class="o">.</span><span class="n">alloc</span><span class="o">.</span><span class="n">initWithFrame</span><span class="p">(</span><span class="no">UIScreen</span><span class="o">.</span><span class="n">mainScreen</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
   <span class="vi">@window</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="no">UIColor</span><span class="o">.</span><span class="n">grayColor</span>
@@ -71,7 +78,7 @@ understand things a little more than you did with Xcode.</p>
 <span class="k">end</span>
 </pre></div>
 
-<h6 id="toc_47">app/my_app_controller.rb</h6>
+<h6 id="app-my_app_controller-rb">app/my_app_controller.rb</h6>
 <div class="codehilite"><pre><span class="k">class</span> <span class="nc">MyAppController</span> <span class="o">&lt;</span> <span class="no">UIViewController</span>
 
   <span class="k">def</span> <span class="nf">viewDidLoad</span>
@@ -96,7 +103,7 @@ understand things a little more than you did with Xcode.</p>
   <figcaption>Hello, World!</figcaption>
 </figure>
 
-<h1 id="toc_48">Welcome</h1>
+<h1 id="welcome">Welcome</h1>
 
 <p>To misquote a wise prophet:</p>
 
@@ -121,15 +128,20 @@ understand things a little more than you did with Xcode.</p>
 </section>
 
 
-<div class="breadcrumb">
-&lsaquo; <a href="/">rubymotion documentation project</a>
+
+    </div>
+    
+
+<div class="breadcrumb bc2">
+<span class="icon icon-chevron-left"></span> <a href="/">Rubymotion Documentation Project</a>
 </div>
 
 
-    </div>
-
     <footer>
-    <p><a href="https://github.com/rubymotion/rubymotion.github.com">Github</a></p>
+      <p>
+        <a href="https://github.com/rubymotion/rubymotion.github.com">Github</a>
+        <a href="//www.fusionbox.com">Designed by Fusionbox</a>
+      </p>
     </footer>
 
   </body>

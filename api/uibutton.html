@@ -3,9 +3,13 @@
   <head>
     <title>UIButton | rubymotion documentation project</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/css/index.css">
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400italic,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/zenburn.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/index.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   </head>
 
@@ -13,10 +17,10 @@
     <div class="header">
 
 
-      <p id="title">rubymotion documentation project</p>
+      <p id="title">Rubymotion Documentation Project</p>
 
   <div id="subtitle">
-    <span class="title">UIButton</span><br />by <span class="author">
+    <span class="title">UIButton</span>by <span class="author">
 <a href="http://colinta.com/" target="_blank"><figure class="gravatar">
       <img src="http://www.gravatar.com/avatar/0b64b1fd4310148fdb121698cbf58960.jpg" />
     </figure>Colin Thomas-Arnold
@@ -24,15 +28,18 @@
 </span></div>
 
     </div>
+    
+
+<div class="breadcrumb">
+<a href="/">Rubymotion Documentation Project</a> <span class="icon icon-chevron-right"></span>
+<a href="/api/">Api</a> <span class="icon icon-chevron-right"></span>
+UIButton <span class="icon icon-chevron-right"></span>
+</div>
+
 
     <div class="content">
 
-<div class="breadcrumb">
-<a href="/">rubymotion documentation project</a> &rsaquo;
-<a href="/api/">Api</a> &rsaquo;
-UIButton &rsaquo;
-</div>
-<h1 id="toc_49">buttonWithType</h1>
+<h1 id="buttonwithtype">buttonWithType</h1>
 
 <p>You&#39;ll create your buttons using the class method <code>UIButton.buttonWithType()</code>.
 Here are examples of each type, except <code>UIButtonTypeCustom</code>.</p>
@@ -62,7 +69,7 @@ vary.</p>
   </div>
 </section></p>
 
-<h1 id="toc_50">Custom button images</h1>
+<h1 id="custom-button-images">Custom button images</h1>
 
 <p><section class="split">
   <div class="left"></p>
@@ -131,7 +138,7 @@ providing your own images, these values will be <em>ignored</em>, it will still<
 <span class="n">button</span><span class="o">.</span><span class="n">adjustsImageWhenHighlighted</span> <span class="o">=</span> <span class="kp">false</span>
 </pre></div>
 
-<h1 id="toc_51">contentEdgeInsets - Let&#39;s see what this does!</h1>
+<h1 id="contentedgeinsets-let-39-s-see-what-this-does">contentEdgeInsets - Let&#39;s see what this does!</h1>
 
 <p>I don&#39;t know what this does, I&#39;ve never played with a <code>UIEdgeInset</code> (another
 day, another Cocoa class or enum&hellip;).  Let&#39;s see!</p>
@@ -156,7 +163,7 @@ though, which is kind of weird.  Well, maybe you&#39;ll need this one day
 (apparently somebody did!).  There are also separate properties for the image
 and label: <code>imageEdgeInsets</code> and <code>titleEdgeInsets</code></p>
 
-<h1 id="toc_52">Messing with the look</h1>
+<h1 id="messing-with-the-look">Messing with the look</h1>
 
 <p>There are a bunch of ways to mess with the button without making a new image:</p>
 
@@ -184,7 +191,7 @@ and label: <code>imageEdgeInsets</code> and <code>titleEdgeInsets</code></p>
   </div>
 </section></p>
 
-<h1 id="toc_53">List of methods:</h1>
+<h1 id="list-of-methods">List of methods:</h1>
 
 <p>Bread and butter:</p>
 <div class="codehilite"><pre><span class="no">UIButton</span><span class="o">.</span><span class="n">buttonWithType</span><span class="p">(</span><span class="n">uibuttontype</span><span class="p">)</span>  <span class="c1"># =&gt; UIButton</span>
@@ -235,7 +242,7 @@ they affected by the <code>contentEdgeInsets</code> method?</p>
 <span class="n">button</span><span class="o">.</span><span class="n">imageForState</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>                       <span class="c1"># =&gt; UIImage</span>
 </pre></div>
 
-<h1 id="toc_54">Official documentation</h1>
+<h1 id="official-documentation">Official documentation</h1>
 
 <p><a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UIButton_Class/UIButton/UIButton.html">UIButton class reference</a></p>
 <script>
@@ -262,16 +269,21 @@ $('img.hoverable').each(function(i, btn) {
 </section>
 
 
-<div class="breadcrumb">
-&lsaquo; <a href="/">rubymotion documentation project</a>
-&lsaquo; <a href="/api/">Api</a>
+
+    </div>
+    
+
+<div class="breadcrumb bc2">
+<span class="icon icon-chevron-left"></span> <a href="/">Rubymotion Documentation Project</a>
+<span class="icon icon-chevron-left"></span> <a href="/api/">Api</a>
 </div>
 
 
-    </div>
-
     <footer>
-    <p><a href="https://github.com/rubymotion/rubymotion.github.com">Github</a></p>
+      <p>
+        <a href="https://github.com/rubymotion/rubymotion.github.com">Github</a>
+        <a href="//www.fusionbox.com">Designed by Fusionbox</a>
+      </p>
     </footer>
 
   </body>
