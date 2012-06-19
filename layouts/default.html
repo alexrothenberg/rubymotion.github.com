@@ -3,25 +3,36 @@
   <head>
     <title>{% if my.title %}{{ my.title }} | {% endif %}{{ meta.title }}</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/css/index.css">
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400italic,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/zenburn.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/index.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   </head>
 
   <body>
     <div class="header">
 {% block header %}
-      <p id="title">rubymotion documentation project</p>
+      <p id="title">Rubymotion Documentation Project</p>
 {% endblock %}
     </div>
+    
+{% block breadcrumb %}{% endblock %}
 
     <div class="content">
 {% block main %}{% endblock %}
     </div>
+    
+{% block breadcrumb2 %}{% endblock %}
 
     <footer>
-    <p><a href="https://github.com/rubymotion/rubymotion.github.com">Github</a></p>
+      <p>
+        <a href="https://github.com/rubymotion/rubymotion.github.com">Github</a>
+        <a href="//www.fusionbox.com">Designed by Fusionbox</a>
+      </p>
     </footer>
 
   </body>

@@ -1,0 +1,228 @@
+/* Resets HTML5 default display wonkiness */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#eeeeee;
+    color:#000000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+
+}
+
+
+
+/* COMMON.SCSS STYLES:
+   Lists (un-ordered, ordered and definition lists)  
+------------------------------------------------------*/
+
+ul {
+  list-style-type: square;
+  padding: 0px 0px 0px 18px;
+}
+
+ol {  
+  list-style: decimal;
+  padding: 0px 0px 0px 22px;  
+} 
+
+ul li {
+  font-weight: normal;
+  margin: 0px;
+  padding: 0px 0px 4px 0px;
+}
+
+ol li {
+  margin: 0px;
+  padding: 0px 0px 4px 0px;
+}
+
+ul li ul,
+ol li ol {
+  margin: 4px 0px;
+  padding: 0px 0px 0px 18px;
+}
+
+ol li ol {
+  margin: 4px 0px;
+  padding: 0px 0px 0px 18px;  
+}
+
+ul li ul li, ol li ol li {
+  font-size: 85%;
+  margin: 0px;
+  padding: 0px 0px 4px 0px;
+}
+
+ul li ul li ul li, ol li ol li ol li {
+  font-size: 85%;
+  margin: 0px;
+  padding: 0px 0px 4px 0px;
+}
+
+dl dt {
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+    
+dl dd {
+  font-weight: normal;
+  margin: 0px;
+  padding: 0px 0px 8px 8px;
+}
+
+
+/* HR (usable as HTML property or div class)
+------------------------------------------------------*/
+
+hr {
+  @include default;
+  background: transparent;
+  border-width: 0px;
+  font-size: 0px;
+  height: 1px;
+  line-height: 0px;
+}
+
+
+/*| Table (styling for generic table)
+------------------------------------------------------*/
+
+table { 
+  border-collapse: collapse;
+  display: table; 
+  margin: 0px 0px 15px 0px;
+  width: 100%; 
+  float: none;
+}
+
+th { 
+  border: 1px solid;
+  font-weight: bold; 
+  padding: 5px 8px; 
+}
+
+td { 
+  border: 1px solid; 
+  padding: 5px 8px; 
+}
+
+/* Common Classes 
+------------------------------------------------------*/
+
+strong, 
+.strong {
+  font-weight: bold; 
+}
+  
+em, 
+.em { 
+  font-style: italic; 
+}
+  
+sup {
+  font-size: 60% !important;
+  position: relative; 
+}
+
+
+/* Misc CKEditor Styles Tags
+------------------------------------------------------*/
+
+tt, kbd, samp, code { font-family: monospace; }
+cite { font-style: italic; padding: 10px; }
+small { font-size: 70%; }
+big { font-size: 150%; }
+address { display: inline; font-style: italic; }
+q { font-style: italic; }
+var { font-weight: bold; }
+del { text-decoration: line-through; }
+
+.error, .errors li { color: #A53A3A; }
+

@@ -1,5 +1,5 @@
 ---
-title: rubymotion documentation project
+title: Rubymotion Documentation Project
 ---
 {% extends 'layouts/default.html' %}
 {% from 'includes/author.j2' import by_author %}
@@ -40,3 +40,7 @@ title: rubymotion documentation project
 {% block main %}
 {{ pages(site.all(pages=True, folders=True)) }}
 {% endblock %}
+
+
+{% block breadcrumb  %}<div class="breadcrumb"></div>{% endblock %}
+{% block breadcrumb2 %}<div class="breadcrumb"></div>{% endblock %}

@@ -1,3 +1,61 @@
+/* SASS Mixins
+--------------------------------------------------*/
+
+@mixin shadow($color: rgba(0,0,0,0.3), $left: 0px, $top: 0px, $blur: 8px) {
+  box-shadow: $left $top $blur $color;
+    -o-box-shadow: $left $top $blur $color;
+    -ms-box-shadow: $left $top $blur $color;
+    -moz-box-shadow: $left $top $blur $color;
+    -webkit-box-shadow: $left $top $blur $color;
+}
+
+@mixin inset($color: #000000, $left: 0px, $top: 0px, $blur: 8px) {
+  box-shadow: inset $left $top $blur $color;
+    -o-box-shadow: inset $left $top $blur $color;
+    -ms-box-shadow: inset $left $top $blur $color;
+    -moz-box-shadow: inset $left $top $blur $color;
+    -webkit-box-shadow: inset $left $top $blur $color;
+}
+
+
+@mixin text-shadow($color: rgba(0,0,0,0.3), $left: 0px, $top: 0px, $blur: 8px) {
+  text-shadow: $left $top $blur $color;
+    -o-text-shadow: $left $top $blur $color;
+    -moz-text-shadow: $left $top $blur $color;
+    -webkit-text-shadow: $left $top $blur $color;
+}
+
+@mixin rounded($radius) {
+  border-radius: $radius;
+    -o-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+}
+
+@mixin gradient($bottom,$top) {
+  background-color: $bottom;
+    background-image: -o-linear-gradient(center bottom, $bottom 1%, $top 100%);
+    background-image: -ms-linear-gradient(center bottom, $bottom 1%, $top 100%);
+    background-image: -moz-linear-gradient(center bottom, $bottom 1%, $top 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.01, $bottom), color-stop(1.00, $top));
+}
+
+@mixin default {
+  display: inline;
+  float: left;
+  height: auto;
+  width: 100%;
+}
+
+@mixin inner {
+  display: block;
+  margin: 0 auto;
+  padding: 0px;
+  text-align: left;
+  width: 960px;
+}
+
 @mixin clearfix {
   &:after {
     content: ".";
@@ -6,49 +64,131 @@
     clear: both;
     visibility: hidden;
   }
+  * html & { height: 1px }
 }
 
-@mixin rounded($radius: 15px) {
-  border-radius: $radius;
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
+@mixin wrapper {
+  display: block;
+  height: auto;
+  position: relative;
+  width: 100%;
+  z-index: 1;
 }
+
+
+@mixin html {
+  h1, h2, h3, h4, h5, h6, p, blockquote, ol, ul, hgroup, hr {
+    display: block !important;
+    float: none !important;
+    margin: 0px 0px 15px 0px !important;
+    width: auto !important;
+  }
+  .fl { float: left; margin: 0px 25px 15px 0px; }
+  .fr { float: right; margin: 0px 0px 15px 25px; }
+  figure { &.left { float: left; margin: 2px 20px 10px 0px; } &.right { float: right; margin: 2px 0px 10px 20px; }}
+  img { &.left { float: left; margin: 5px 20px 15px 0px; } &.right { float: right; margin: 5px 0px 15px 20px; }}
+  table { display: table; width: 100% !important; }
+}
+
+/* Colors
+------------------------------------*/
+
+$ruby: #b60000;
+
+$white: #ffffff;
+$black: #000000;
+
+$reallydarkgrey: #3f3f3f;
+$darkgrey: #5e5e5e;
+$grey: #777777;
+$lightgrey: #a1a1a1;
+$reallylightgrey: #dbdbdb;
+$reallyreallylightgrey: #f4f4f4;
+
+$font-title: "Raleway", Helvetica, Arial, sans-serif;
+$font-default: "Pontano Sans", Helvetica, Arial, sans-serif;
+$font-fancy: "Gentium Basic", Georgia, serif;
+
+/* Selection/Highlight
+------------------------------------*/
 
 ::-webkit-selection {
-  background: #5e5e5e;
-  color: #a1a1a1;
+  background: $darkgrey;
+  color: $lightgrey;
 }
 
 ::-moz-selection {
-  background: #5e5e5e;
-  color: #a1a1a1;
+  background: $darkgrey;
+  color: $lightgrey;
 }
 
 ::-ms-selection {
-  background: #5e5e5e;
-  color: #a1a1a1;
+  background: $darkgrey;
+  color: $lightgrey;
 }
 
 ::-o-selection {
-  background: #5e5e5e;
-  color: #a1a1a1;
+  background: $darkgrey;
+  color: $lightgrey;
 }
 
 ::selection {
-  background: #5e5e5e;
-  color: #a1a1a1;
+  background: $darkgrey;
+  color: $lightgrey;
 }
 
+/* Layout
+------------------------------------*/
+
 body {
-  background: #f7f6f3;
-  color: #5d5450;
+  background: darken($reallydarkgrey,10%);
+  font-family: $font-default;
+  font-weight: normal;
   margin: none;
   padding: none;
-  font-family: "Verdana", sans-serif;
+}
+
+/* Tags
+------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+h1 {
+  border-bottom: dotted 1px darken($reallylightgrey,10%);
+  font-size: 28px;
+  line-height: 34px;
+  margin: 0px 0px 10px 0px;
+  padding: 0px 0px 5px 0px;
+}
+
+h2 {
+  font-size: 25px;
+  line-height: 32px;
+  margin: 0px 0px 5px 0px;
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 28px;
+  margin: 0px 0px 5px 0px;
+}
+
+h4, h5, h6 {
+  font-size: 20px;
+  line-height: 26px;
+  margin: 0px 0px 5px 0px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 21px;
+  margin: 0px 0px 10px 0px;
 }
 
 a {
-  color: #46828b;
+  color: $ruby;
   text-decoration: none;
   -webkit-transition: 0.2s linear;
   -moz-transition: 0.2s linear;
@@ -56,43 +196,37 @@ a {
   -o-transition: 0.2s linear;
   transition: 0.2s linear;
   display: inline-block;
-  height: 18px;
+  height: auto;
 
   &:hover {
-    text-shadow: 0px 0px 15px #71AEB7;
+    color: lighten($ruby,25%);
   }
+}
+
+figure {
+  margin: 0px 0px 15px 0px;
 }
 
 img {
+  @include rounded(5px);
   display: inline-block;
-}
-
-.header {
-  text-align: center;
-}
-
-#title {
-  margin-top: 10px;
-  font-family: "Wire One", sans-serif;
-  font-size: 55px;
-  border-bottom: 1px solid #dbdbdb;
-}
-
-#subtitle {
-  margin-top: 10px;
-  border-bottom: 1px solid #dbdbdb;
-
-  .title {
-    font-family: "Wire One", sans-serif;
-    font-size: 45px;
-  }
+  overflow: hidden;
 }
 
 pre {
+  @include rounded(5px);
+  background-color: $reallydarkgrey;
+  border-bottom: 3px solid darken($reallyreallylightgrey,15%);
   color: #fdce93;
-  background-color: #3f3f3f;
+  margin: 0px 0px 15px 0px;
   padding: 20px;
-  @include rounded(15px);
+  
+  code {
+    background-color: #3f3f3f;
+    border: 0px;
+    color: #fdce93;
+    padding: 0px;
+  }
 }
 
 .codehilite {
@@ -102,44 +236,100 @@ pre {
 }
 
 code {
-  color: #3f3f3f;
+  @include rounded(3px);
+  color: $reallydarkgrey;
   padding: 2px;
   padding-left: 4px;
   padding-right: 4px;
-  border: 1px solid #fdce93;
-  @include rounded(5px);
+  border: 1px solid lighten($ruby,10%);
 }
 
 blockquote {
-  margin-left: 10px;
-  padding: 5px;
-  @include rounded(8px);
-  font-family: serif;
-  background-color: #e9f0ff;
+  @include rounded(5px);
+  background-color: $reallydarkgrey;
+  border-bottom: 3px solid darken($reallyreallylightgrey,15%);
+  color: $white;
+  font-family: $font-fancy;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0px 0px 15px 0px;
+  padding: 10px;
 
   p {
+    font-size: 16px;
     margin: 0px;
   }
 }
 
-.content {
-  margin: 30px auto;
+/* Header
+------------------------------------*/
+
+.header {
+  background: $reallyreallylightgrey;
+  display: block;
+  margin: 0 auto;
   padding: 25px;
-  width: 70%;
-  background: #ffffff;
-  box-shadow: 0px 0px 6px #767676 inset;
+  width: auto;
+}
+
+#title {
+  color: $lightgrey;
+  font-family: $font-title;
+  font-size: 24px;
+  font-weight: 100;
+  letter-spacing: 0px;
+  line-height: 30px;
+  margin: 0px;
+  text-align: left;
+  padding: 0px;
+}
+
+#subtitle {
+  background: $reallyreallylightgrey;
+  padding: 0px;
+  
+  .title {
+    display: block;
+    font-family: $font-title;
+    font-weight: 100;
+    font-size: 45px;
+    letter-spacing: -1px;
+    line-height: 55px;
+    margin: 0px;
+  }
 }
 
 .breadcrumb {
-  &:first-child {
-    padding-bottom: 5px;
-    border-bottom: 1px solid #dbdbdb;
-  }
+  background: $ruby url("/image/kaleidoscope.gif");
+  color: $reallyreallylightgrey;
+  display: block;
+  font-size: 12px;
+  margin: 0px 0px 0px 0px;
+  padding: 5px 25px;
+  
+  a {
+    color: $white;
 
-  &:last-child {
-    padding-top: 5px;
-    border-top: 1px solid #dbdbdb;
+    &:hover {
+      color: lighten($ruby,50%);
+    }
   }
+  
+  span.icon {
+    font-size: 10px;
+    margin: 0px 5px;
+  }
+}
+
+/* Content
+------------------------------------*/
+
+.content {
+  background: $reallyreallylightgrey;
+  display: block;
+  margin: 0 auto;
+  padding: 20px 25px;
+  width: auto;
 }
 
 section.split {
@@ -166,7 +356,7 @@ section.split90 {
   }
 
   .left {
-    width: 90%;
+    width: 88%;
     float: left;
   }
 
@@ -184,7 +374,7 @@ section.split100 {
   }
 
   .left {
-    width: 85%;
+    width: 83%;
     float: left;
   }
 
@@ -200,33 +390,39 @@ section.example {
 }
 
 figure.gravatar {
-  border: 1px solid #dbdbdb;
-  @include rounded(3px);
-  padding: 2px;
-  margin: 0px;
-  width: 20px;
-  height: 20px;
+  @include rounded(50px);
   display: inline-block;
-  float: left;
+  float: none;
+  height: 24px;
+  margin: 0px 4px 0px 2px;
+  overflow: hidden;
+  padding: 0px;
   position: relative;
-  bottom: 4px;
+  top: 6px;
+  width: 24px;
 
   img {
-    width: 20px;
-    height: 20px;
+    @include rounded(50px);
+    width: 24px;
+    height: 24px;
   }
 }
 
-footer {
-  margin: 0px auto;
-  width: 70%;
-  word-spacing: 100px;
-  text-align: center;
+/* Footer
+------------------------------------*/
 
-  a {
-    border-right: 1px solid #dbdbdb;
-    border-left: 1px solid #dbdbdb;
-    padding-right: 40px;
-    padding-left: 40px;
+footer {
+  display: block;
+  padding: 25px 0px;
+  text-align: center;
+  width: auto;
+
+  a, span {
+    color: $grey;
+    padding: 0px 20px;
+    
+    a {
+      padding: 0px;
+    }
   }
 }

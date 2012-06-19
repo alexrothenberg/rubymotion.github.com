@@ -1,12 +1,24 @@
 {% extends 'layouts/default.html' %}
 
-
-{% block main %}
+{% block breadcrumb %}
 <div class="breadcrumb">
 {% for crumb in my.ancestors -%}
 <a href="{{ crumb.url }}">{{ crumb.title }}</a> &rsaquo;
 {% endfor -%}
 {{ my.title }} &rsaquo;
 </div>
+{% endblock %}
+
+{% block main %}
 {% block content %}{% endblock %}
+
+{% block breadcrumb2 %}
+<div class="breadcrumb bc2">
+{% for crumb in my.ancestors -%}
+<a href="{{ crumb.url }}">{{ crumb.title }}</a> &rsaquo;
+{% endfor -%}
+{{ my.title }} &rsaquo;
+</div>
+{% endblock %}
+
 {% endblock %}

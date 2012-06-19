@@ -7,19 +7,22 @@
   <div id="subtitle">
     <span class="title">{{ title }}</span>
 {%- if my.author -%}
-    <br />by <span class="author">{{ by_author(authors[my.author]) }}</span>
+    by <span class="author">{{ by_author(authors[my.author]) }}</span>
 {%- endif -%}
   </div>
 {% endblock %}
 
 
-{% block main %}
+{% block breadcrumb %}
 <div class="breadcrumb">
 {% for crumb in my.ancestors -%}
-<a href="{{ crumb.url }}">{{ crumb.title }}</a> &rsaquo;
+<a href="{{ crumb.url }}">{{ crumb.title }}</a> <span class="icon icon-chevron-right"></span>
 {% endfor -%}
-{{ my.title }} &rsaquo;
+{{ my.title }} <span class="icon icon-chevron-right"></span>
 </div>
+{% endblock %}
+
+{% block main %}
 {% block content %}{% endblock %}
 
 {% if my.example %}
@@ -33,10 +36,12 @@
 </section>
 {% endif %}
 
-<div class="breadcrumb">
+{% endblock %}
+
+{% block breadcrumb2 %}
+<div class="breadcrumb bc2">
 {% for crumb in my.ancestors -%}
-  &lsaquo; <a href="{{ crumb.url }}">{{ crumb.title }}</a>
+  <span class="icon icon-chevron-left"></span> <a href="{{ crumb.url }}">{{ crumb.title }}</a>
 {% endfor -%}
 </div>
-
 {% endblock %}
